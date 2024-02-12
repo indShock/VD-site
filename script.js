@@ -2,6 +2,10 @@ let date;
 let place;
 let food;
 let offers;
+let fastfood;
+let sushi;
+let pizza;
+let foodCustom;
 $(document).ready(function(){
     document.body.innerHTML = `
     <div class="content">
@@ -57,23 +61,23 @@ $(document).ready(function(){
         document.body.innerHTML = `
         <div class="content">
         <div class="container">
-            <h1>Choose what ypu wanna eat!</h1>
+            <h1>Choose what you wanna eat!</h1>
            <div class="option"> 
                 <img id="foodimg" src="https://img.freepik.com/free-photo/maki-sushi-isolated-white_2829-7304.jpg" alt="">
-                <input type="checkbox" id="food" name="sushi">
+                <input type="checkbox" class="sushi" id="food" name="sushi">
             </div>
             <div class="option"> 
                 <img id="foodimg" src="https://t3.ftcdn.net/jpg/06/11/01/26/360_F_611012694_YztSwcyDjHflPhlil3LfeSDXMtew2Scy.jpg" alt="">
-                <input type="checkbox" id="food" name="pizza">
+                <input type="checkbox" class="pizza" id="food" name="pizza">
             </div>
             <div class="option"> 
                 <img id="foodimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrw68CSdUCw09u89goqgYe0kUIju767rN8QEpP8q3PWLBf0FEzK1iAxVG4i0pqvnafrsE&usqp=CAU">
-                <input type="checkbox" id="food" name="fastfood">
+                <input type="checkbox"class="burgers" id="food" name="fastfood">
             </div>
               
            <div class="option">
             <h2>your variant:</h4>       
-            <input type="text" id="text">
+            <input type="text" class="CustomFood" id="text">
            </div>
                 <input type="button" class="next2" value="Next!">
         </div>
@@ -81,7 +85,10 @@ $(document).ready(function(){
         `
     });
     $(document).on("click", ".next2", function(){
-        food = $(".date").val();
+        foodCustom = $(".CustomFood").val();
+        sushi = $(".sushi").val();
+        pizza = $(".pizza").val();
+        fastfood = $("fastfood").val();
         document.body.innerHTML = `
         <div class="content">
         <div class="container">
@@ -100,7 +107,7 @@ $(document).ready(function(){
         <h1>Here is your order!</h1>
         <p>1.Date and time: ${date}</p>
         <p>2.Place:${place}</p>
-        <p>3.Food:${food}</p>
+        <p>3.Food:${sushi ? 'sushi, ' : ''} ${pizza ? 'pizza,' : ''} ${fastfood ? 'fastfood' : ''}, also your suggestions:${foodCustom}</p>
         <p>4.Your offers:${offers}</p>
         <img class="frogs" src="https://media0.giphy.com/media/xT0GqFhyNd0Wmfo6sM/giphy.webp?cid=790b7611682s9m6o3q3ktw5pcvzgkhwyhcz950kskj60p3pj&ep=v1_gifs_search&rid=giphy.webp&ct=g">
         <h2>Thanks for your time! Love you!</h2>
